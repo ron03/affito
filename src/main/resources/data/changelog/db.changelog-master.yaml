@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: data/changelog/user.changelog.yaml
+  - include:
+      file: data/changelog/role.changelog.yaml
+  - include:
+      file: data/changelog/user_role.changelog.yaml
+  - include:
+      file: data/changelog/category.changelog.yaml
+  - include:
+      file: data/changelog/sub_category.changelog.yaml
+  - include:
+      file: data/changelog/product.changelog.yaml
+  - include:
+      file: data/changelog/product_image.changelog.yaml

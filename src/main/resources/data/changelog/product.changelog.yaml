@@ -1,0 +1,74 @@
+databaseChangeLog:
+  - changeSet:
+      id: product-createTable
+      author: rohanpanwar
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rent
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rent_frequency
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: owner_id
+                  type: Binary(16)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_product_owner_id_user_id
+                    references: user(uuid)
+              - column:
+                  name: rentee_id
+                  type: Binary(16)
+                  constraints:
+                    foreignKeyName: fk_product_rentee_id_user_id
+                    references: user(uuid)
+              - column:
+                  name: sub_category_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_product_sub_category_id
+                    references: sub_category(id)
+              - column:
+                  name: created_by
+                  type: varchar(100)
+                  defaultValue: SYSTEM
+              - column:
+                  name: created_on
+                  type: timestamp
+              - column:
+                  name: updated_by
+                  type: varchar(100)
+                  defaultValue: SYSTEM
+              - column:
+                  name: last_modified
+                  type: timestamp

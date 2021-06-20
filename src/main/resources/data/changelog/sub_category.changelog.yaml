@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: sub_category-createTable
+      author: rohanpanwar
+      changes:
+        - createTable:
+            tableName: sub_category
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: category_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_sub_category_category_id
+                    references: category(id)
+
+
